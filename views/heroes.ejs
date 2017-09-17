@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Heroes</title>
+</head>
+<body>
+	<a href="/dashboard">Dashboard</a>
+	<a href="/heroes">Heroes</a>
+	<a href="/create">Create hero</a>
+	<h1>Heroes</h1>
+	<div class="heroes">
+		<% for(var i = 0; i < heroes.length; i++) { %>
+			<div class="hero">
+				<h4><a href="/heroes/<%= heroes[i].id %>"><%= heroes[i].name %></a></h4>
+				<div>
+					Score: <%= heroes[i].score %>
+				</div>
+			</div>
+		<% } %>	
+	</div>
+</body>
+</html>
