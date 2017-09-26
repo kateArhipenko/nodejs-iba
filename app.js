@@ -51,18 +51,21 @@ app.get("/", function(req, res) {
 	var heroes = HEROES.sort(function(hero1, hero2) {
     return hero2.score - hero1.score
   }).slice(0,4);
-	res.render('dashboard.ejs', { heroes: heroes });
+  res.json(heroes)
+	// res.render('dashboard.ejs', { heroes: heroes });
 });
 
 app.get("/dashboard", function(req, res) {
 	var heroes = HEROES.sort(function(hero1, hero2) {
     return hero2.score - hero1.score
   }).slice(0,4);
-	res.render('dashboard.ejs', { heroes: heroes });
+  res.json(heroes)
+	//res.render('dashboard.ejs', { heroes: heroes });
 });
 
 app.get("/heroes", function(req, res) {
-	res.render('heroes.ejs', { heroes: HEROES });
+  res.json(HEROES)
+	//res.render('heroes.ejs', { heroes: HEROES });
 });
 
 app.get("/heroes/:id", function(req, res) {
@@ -72,8 +75,9 @@ app.get("/heroes/:id", function(req, res) {
 		if(Number(id) === HEROES[i].id) {
 			hero = HEROES[i];
 		}
-	}	
-	res.render("hero-detail.ejs", { hero: hero });
+	}
+	res.json(hero)	
+	// res.render("hero-detail.ejs", { hero: hero });
 });
 
 
